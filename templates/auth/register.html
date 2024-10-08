@@ -1,0 +1,49 @@
+{% extends 'layouts/app.html' %}
+
+{% block content %}
+
+
+
+<div class="row justify-content-center">
+    <div class="col-sm-6">
+        <h2 class="text-muted">Register</h2>
+        <form method="POST" action="{%url 'register'%}">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="">Username:</label>
+                <input type="text" name="{{ form.Username.name }}" class="form-control" value="{{ form.Username.value }}"/>
+                <span class="text-danger">{{form.Username.errors }}</span>
+            </div>
+
+
+            <div class="form-group">
+                <label for="">password:</label>
+                <input type="password" name="{{ form.password1.name }}" class="form-control" value="{{ form.password1.value }}"/>
+                <span class="text-danger">{{form.password1.errors }}</span>
+            </div>
+            <div class="form-group">
+                <label for="">re-type password:</label>
+                <input type="password" name="{{ form.password2.name }}" class="form-control" value="{{ form.password2.value }}"/>
+                <span class="text-danger">{{form.password2.errors }}</span>
+            </div>
+
+
+            <button type="submit" class="btn btn-dark">submit</button>
+
+
+            <a href="{%url 'login'%}" class="btn btn-default">I have a already account</a>
+
+
+
+
+
+
+
+        </form>
+    </div>
+</div>
+
+
+
+{% endblock %}
